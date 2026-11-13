@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garance — Vestiaire &amp; objets, boutique en ligne (site démo)</title>
+<meta name="description" content="Garance, boutique de vêtements et d'accessoires. Collection automne-hiver, livraison offerte dès 80 €, retrait en boutique en 2 heures. Site de démonstration.">
+<meta name="theme-color" content="#f3efe6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Garance — Vestiaire &amp; objets (site démo)">
+<meta property="og:description" content="Boutique en ligne de démonstration : catalogue, filtres, panier et commande.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23a4232b'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='40' text-anchor='middle' fill='%23f3efe6'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#boutique">Aller à la boutique</a>
+
+<!-- Dessins des vêtements, réutilisés par tout le site -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="cl-pull"><path d="M74 34q26 16 52 0l44 28 16 114-26 6-12-78-2 100q-46 8-92 0l-2-100-12 78-26-6 16-114z"/></clipPath>
+    <symbol id="g-tee" viewBox="0 0 200 240">
+      <path class="f" d="M62 44 86 32q14 14 28 0l24 12 38 34-22 26-14-12v118q-42 8-84 0V92l-14 12-22-26z"/>
+      <path class="sh" d="M56 196q42 8 84 0v14q-42 8-84 0z"/>
+      <path class="l" d="M86 32q14 22 28 0"/>
+    </symbol>
+    <symbol id="g-chemise" viewBox="0 0 200 240">
+      <path class="f" d="M72 36 90 26l10 14 10-14 18 10 42 26 12 112-24 4-14-78-2 112q-44 6-88 0l-2-112-14 78-24-4 12-112z"/>
+      <path class="f" d="M90 26 100 44 110 26 118 44 100 60 82 44z"/>
+      <path class="l" d="M100 60v153M112 96h22v22l-11 6-11-6z"/>
+      <path class="sh" d="M16 160l22 4-2 14-22-4zM184 160l-22 4 2 14 22-4z"/>
+      <g class="d"><circle cx="100" cy="84" r="3"/><circle cx="100" cy="112" r="3"/><circle cx="100" cy="140" r="3"/><circle cx="100" cy="168" r="3"/><circle cx="100" cy="196" r="3"/></g>
+    </symbol>
+    <symbol id="g-pull" viewBox="0 0 200 240">
+      <path class="f" d="M74 34q26 16 52 0l44 28 16 114-26 6-12-78-2 100q-46 8-92 0l-2-100-12 78-26-6 16-114z"/>
+      <g clip-path="url(#cl-pull)"><path class="st" d="M0 78h200M0 98h200M0 118h200M0 138h200M0 158h200M0 178h200"/></g>
+      <path class="sh" d="M54 190q46 8 92 0v14q-46 8-92 0zM14 164l26 6-2 12-26-6zM186 164l-26 6 2 12 26-6z"/>
+      <path class="rib" d="M74 34q26 16 52 0"/>
+      <path class="l" d="M74 34q26 16 52 0"/>
+    </symbol>
+    <symbol id="g-pantalon" viewBox="0 0 200 240">
+      <path class="f" d="M64 26h72l14 190h-40l-10-118-10 118H50z"/>
+      <path class="sh" d="M64 26h72l1 14H63z"/>
+      <path class="l" d="M63 40h74M100 40v38M72 42q4 22 18 24M128 42q-4 22-18 24"/>
+      <path class="l2" d="M76 70 68 214M124 70l8 144"/>
+    </symbol>
+    <symbol id="g-robe" viewBox="0 0 200 240">
+      <path class="f" d="M80 28q20 16 40 0l12 6 18 30-18 12-4 24 40 106q-68 14-136 0l40-106-4-24-18-12 18-30z"/>
+      <path class="l" d="M80 28q20 16 40 0M72 100h56"/>
+      <path class="l2" d="M88 104 76 208M100 104v106M112 104l12 104"/>
+      <path class="sh" d="M36 194q64 14 128 0l4 12q-68 14-136 0z"/>
+    </symbol>
+    <symbol id="g-manteau" viewBox="0 0 200 240">
+      <path class="f" d="M72 30 90 22l10 22 10-22 18 8 40 24 16 130-24 4-12-90 2 126H48l2-126-12 90-24-4 16-130z"/>
+      <path class="sh" d="M90 22 100 44 86 84 74 44zM110 22 100 44 114 84 126 44z"/>
+      <path class="l" d="M90 22 100 44 86 84 74 44zM110 22 100 44 114 84 126 44zM100 84v140M58 152h28M114 152h28"/>
+      <g class="d"><circle cx="92" cy="112" r="4"/><circle cx="108" cy="112" r="4"/><circle cx="92" cy="144" r="4"/><circle cx="108" cy="144" r="4"/></g>
+    </symbol>
+    <symbol id="g-jupe" viewBox="0 0 200 240">
+      <path class="f" d="M66 46h68l30 154q-64 14-128 0z"/>
+      <path class="f" d="M66 32h68v14H66z"/>
+      <path class="sh" d="M66 32h68v14H66z"/>
+      <path class="l2" d="M84 48 72 204M100 48v160M116 48l12 156"/>
+    </symbol>
+    <symbol id="g-sac" viewBox="0 0 200 240">
+      <path class="hk" d="M72 100C72 36 128 36 128 100"/>
+      <path class="hc" d="M72 100C72 36 128 36 128 100"/>
+      <path class="f" d="M44 98h112l10 116H34z"/>
+      <path class="sh" d="M36 196h128l2 18H34z"/>
+      <rect class="lab" x="84" y="138" width="32" height="20" rx="2"/>
+    </symbol>
+    <symbol id="g-bonnet" viewBox="0 0 200 240">
+      <circle class="f" cx="100" cy="72" r="20"/>
+      <path class="f" d="M48 168C48 68 152 68 152 168z"/>
+      <path class="l2" d="M76 96q-8 30-8 70M100 86v80M124 96q8 30 8 70"/>
+      <rect class="f" x="40" y="160" width="120" height="40" rx="10"/>
+      <rect class="sh" x="40" y="160" width="120" height="40" rx="10"/>
+      <path class="l2" d="M58 164v32M76 164v32M94 164v32M112 164v32M130 164v32M148 164v32"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="demo">Site de démonstration — boutique, articles et avis fictifs. Aucun paiement réel.</div>
+<div class="promo"><p id="promo">Livraison offerte dès 80&nbsp;€ d'achat</p></div>
+
+<header class="top" id="topbar">
+  <div class="wrap top-in">
+    <a class="logo" href="#top" aria-label="Garance, haut de page"><b>Garance</b><small>Vestiaire &amp; objets</small></a>
+    <nav class="top-nav" aria-label="Sections">
+      <a href="#boutique">La boutique</a>
+      <a href="#silhouettes">Silhouettes</a>
+      <a href="#maison">La maison</a>
+      <a href="#questions">Livraison &amp; retours</a>
+    </nav>
+    <div class="top-act">
+      <button class="ic" type="button" id="btnSearch" aria-label="Rechercher un article">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.500 4.500"/></svg>
+      </button>
+      <button class="ic" type="button" id="btnWish" aria-label="Voir mes favoris">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.600A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>
+        <span class="n" id="wishN" hidden>0</span>
+      </button>
+      <button class="ic cartbtn" type="button" id="btnCart" aria-label="Ouvrir le panier">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></svg>
+        <span class="n" id="cartN" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-txt">
+        <p class="eyebrow">Collection automne-hiver</p>
+        <h1>Le vestiaire qui dure <em>plus d'une saison.</em></h1>
+        <p class="lead">Des pièces simples, bien coupées, dans de belles matières. Choisies une à une par Élise, dans la boutique comme en ligne.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="#boutique">Découvrir la collection</a>
+          <a class="btn btn-line" href="#silhouettes">Voir les silhouettes</a>
+        </div>
+        <ul class="hero-facts">
+          <li><b>13</b> pièces cette saison</li>
+          <li><b>2&nbsp;h</b> pour un retrait en boutique</li>
+          <li><b>30&nbsp;jours</b> pour changer d'avis</li>
+        </ul>
+      </div>
+      <div class="collage" id="collage" aria-hidden="true">
+        <div class="tile t1" data-depth=".06"></div>
+        <div class="tile t2" data-depth=".12"></div>
+        <div class="tile t3" data-depth=".2"></div>
+        <span class="stamp">Nouvelle<br>collection</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbon"><ul>
+    <li>Livraison offerte dès 80&nbsp;€</li><li>Retrait en boutique en 2&nbsp;h</li><li>Retours sous 30&nbsp;jours</li><li>Retouches offertes</li><li>Paiement sécurisé</li><li>Emballage cadeau gratuit</li>
+  </ul></div></div>
+
+  <section class="sec" aria-labelledby="catsT">
+    <div class="wrap">
+      <div class="head-row rv">
+        <h2 id="catsT">Par envie</h2>
+        <p>Cinq rayons, pas un de plus.</p>
+      </div>
+      <div class="cats" id="cats"></div>
+    </div>
+  </section>
+
+  <section class="sec shop" id="boutique" aria-labelledby="shopT">
+    <div class="wrap">
+      <div class="head-row rv">
+        <h2 id="shopT">La boutique</h2>
+        <p id="count" aria-live="polite">13 articles</p>
+      </div>
+      <div class="tools rv">
+        <div class="tools-top">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.500"/><path d="m16 16 4.500 4.500"/></svg>
+            <span class="vh">Rechercher un article</span>
+            <input type="search" id="q" placeholder="Rechercher : pull, robe, camel…" autocomplete="off">
+          </label>
+          <label class="sel"><span class="vh">Trier</span>
+            <select id="sort">
+              <option value="new">Nouveautés d'abord</option>
+              <option value="asc">Prix croissant</option>
+              <option value="desc">Prix décroissant</option>
+              <option value="az">De A à Z</option>
+            </select>
+          </label>
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Rayon"></div>
+        <details class="more" id="more" open>
+          <summary>Filtres <span id="moreN"></span></summary>
+          <div class="more-in">
+            <label class="sel"><span>Taille</span>
+              <select id="fSize"><option value="">Toutes</option></select>
+            </label>
+            <label class="sel"><span>Prix</span>
+              <select id="fPrice">
+                <option value="">Tous les prix</option>
+                <option value="0-50">Moins de 50 €</option>
+                <option value="50-100">De 50 à 100 €</option>
+                <option value="100-999">Plus de 100 €</option>
+              </select>
+            </label>
+            <div class="fam"><span>Couleur</span><div id="fams" role="group" aria-label="Couleur"></div></div>
+            <button class="reset" type="button" id="reset">Tout effacer</button>
+          </div>
+        </details>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>
+        <h3>Aucun article ne correspond.</h3>
+        <p>Essayez un autre rayon ou retirez un filtre.</p>
+        <button class="btn btn-line" type="button" id="reset2">Voir toute la boutique</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec looks" id="silhouettes" aria-labelledby="lookT">
+    <div class="wrap">
+      <div class="head-row rv">
+        <h2 id="lookT">Trois silhouettes</h2>
+        <p>Des tenues déjà pensées : touchez une pièce pour la voir.</p>
+      </div>
+      <div class="look-grid" id="looks"></div>
+    </div>
+  </section>
+
+  <section class="perks" aria-label="Nos services">
+    <div class="wrap perks-in">
+      <div class="rv"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 9h16v13H3zM19 13h6l4 5v4h-10z"/><circle cx="9" cy="23" r="2.500"/><circle cx="23" cy="23" r="2.500"/></svg><h3>Livraison offerte dès 80&nbsp;€</h3><p>En point relais ou à domicile, expédiée sous 24 heures.</p></div>
+      <div class="rv" style="--d:.06s"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 13h22v15H5zM3 13l3-8h20l3 8M13 28v-8h6v8"/></svg><h3>Retrait en boutique</h3><p>Commandez en ligne, passez prendre votre paquet deux heures après.</p></div>
+      <div class="rv" style="--d:.12s"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 12a11 11 0 1 1-1 6"/><path d="M6 5v7h7"/></svg><h3>Retours sous 30&nbsp;jours</h3><p>Échange ou remboursement, en boutique ou par colis prépayé.</p></div>
+      <div class="rv" style="--d:.18s"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="23" r="4"/><circle cx="9" cy="9" r="4"/><path d="M12 11.500 28 24M12 20.500 28 8"/></svg><h3>Retouches offertes</h3><p>Un ourlet, une manche : c'est fait sur place, sans supplément.</p></div>
+    </div>
+  </section>
+
+  <section class="sec maison" id="maison" aria-labelledby="maisonT">
+    <div class="wrap maison-grid">
+      <div class="rv">
+        <p class="eyebrow">La maison</p>
+        <h2 id="maisonT">Une boutique de quartier, <em>ouverte aussi en ligne.</em></h2>
+        <p>Élise a ouvert Garance en 2016, avec une idée simple : moins de pièces, mieux choisies. Chaque article est essayé, lavé et porté avant d'entrer dans la boutique.</p>
+        <p>Le site suit le même principe. Ce que vous voyez ici est ce qu'il y a sur les portants, avec le stock à jour.</p>
+        <blockquote>« Je préfère vous vendre un pull que vous porterez dix ans que trois que vous oublierez. »<cite>Élise, fondatrice</cite></blockquote>
+      </div>
+      <aside class="card-info rv" style="--d:.1s" aria-label="Informations pratiques">
+        <p class="open" id="open"><i></i><span id="openT">Ouvert du mardi au samedi</span></p>
+        <h3>12 rue des Tanneurs</h3>
+        <p class="muted">Centre-ville, à deux pas de la place du marché.</p>
+        <ul class="hours">
+          <li><span>Mardi au vendredi</span><b>10 h – 19 h</b></li>
+          <li><span>Samedi</span><b>10 h – 19 h 30</b></li>
+          <li><span>Dimanche et lundi</span><b>Fermé</b></li>
+        </ul>
+        <a class="btn btn-line" href="tel:+33199000000">Appeler la boutique</a>
+        <p class="tiny">01 99 00 00 00 · bonjour@garance-demo.example</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec avis" aria-labelledby="avisT">
+    <div class="wrap">
+      <div class="head-row rv">
+        <h2 id="avisT">Elles et ils en parlent</h2>
+        <p><b>4,9 / 5</b> sur 214 avis</p>
+      </div>
+      <div class="avis-grid">
+        <figure class="rv"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« Commandé le matin, retiré à midi. Le pull est encore plus beau en vrai, et l'ourlet du pantalon a été fait pendant que j'attendais. »</blockquote><figcaption><b>Marion D.</b>Pull Joseph, taille M</figcaption></figure>
+        <figure class="rv" style="--d:.08s"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« Le guide des tailles est juste : j'ai pris mon 38 habituel et la robe tombe parfaitement. Livrée en deux jours. »</blockquote><figcaption><b>Inès L.</b>Robe Suzanne, taille 38</figcaption></figure>
+        <figure class="rv" style="--d:.16s"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« J'ai échangé une taille sans discussion, avec l'étiquette de retour déjà dans le colis. Je recommande. »</blockquote><figcaption><b>Thomas B.</b>Surchemise Basile, taille L</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" id="questions" aria-labelledby="faqT">
+    <div class="wrap faq-grid">
+      <div class="rv">
+        <p class="eyebrow">Bon à savoir</p>
+        <h2 id="faqT">Livraison, retours, tailles.</h2>
+        <p class="muted">Une question avant de commander ? Tout est écrit ici, sans astérisque.</p>
+      </div>
+      <div class="faq-list rv" style="--d:.1s">
+        <details><summary>Combien coûte la livraison ?</summary><p>Le retrait en boutique est gratuit. En point relais : 4,90 €. À domicile : 6,90 €. Les deux sont offerts à partir de 80 € d'achat.</p></details>
+        <details><summary>En combien de temps suis-je livré ?</summary><p>Les commandes passées avant 15 h partent le jour même. Comptez deux à trois jours ouvrés en point relais comme à domicile.</p></details>
+        <details><summary>Comment retourner un article ?</summary><p>Vous avez 30 jours. Rapportez l'article en boutique, ou collez l'étiquette prépayée glissée dans le colis. Le remboursement est fait sous cinq jours.</p></details>
+        <details><summary>Comment choisir ma taille ?</summary><p>Chaque fiche article contient un guide des tailles avec les mesures en centimètres. En cas de doute entre deux tailles, écrivez-nous : on mesure la pièce pour vous.</p></details>
+        <details><summary>Quels moyens de paiement acceptez-vous ?</summary><p>Carte bancaire, PayPal, ou paiement en boutique au moment du retrait. Le paiement en ligne est sécurisé.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" aria-labelledby="newsT">
+    <div class="wrap news-in rv">
+      <div>
+        <h2 id="newsT">Les nouveautés, <em>avant tout le monde.</em></h2>
+        <p>Une lettre par mois, pas plus : les arrivages et 10&nbsp;% sur votre première commande.</p>
+      </div>
+      <form id="news" novalidate>
+        <label class="vh" for="mail">Votre adresse e-mail</label>
+        <div class="news-row">
+          <input id="mail" type="email" inputmode="email" autocomplete="email" placeholder="votre@adresse.fr" required>
+          <button class="btn btn-ink" type="submit">Je m'inscris</button>
+        </div>
+        <p class="err" id="mailErr" hidden>Indiquez une adresse e-mail valide.</p>
+        <p class="ok" id="mailOk" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="#top"><b>Garance</b><small>Vestiaire &amp; objets</small></a><p>12 rue des Tanneurs · du mardi au samedi</p></div>
+      <nav aria-label="Boutique"><h3>Boutique</h3><a href="#boutique">Tous les articles</a><a href="#silhouettes">Silhouettes</a><a href="#maison">La maison</a></nav>
+      <nav aria-label="Aide"><h3>Aide</h3><a href="#questions">Livraison</a><a href="#questions">Retours</a><a href="#questions">Guide des tailles</a></nav>
+    </div>
+    <p class="foot-note">Site de démonstration. Garance est une boutique fictive : les articles, les prix, les avis et les coordonnées sont inventés pour l'exemple, et aucune commande n'est réellement passée.</p>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Navigation rapide">
+  <a href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></svg>Accueil</a>
+  <a href="#boutique"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z"/></svg>Boutique</a>
+  <button type="button" id="tabWish"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.600A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>Favoris<span class="n" id="wishN2" hidden>0</span></button>
+  <button type="button" id="tabCart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></svg>Panier<span class="n" id="cartN2" hidden>0</span></button>
+</nav>
+
+<!-- Fiche article -->
+<dialog class="sheet pd" id="pd" aria-labelledby="pdName">
+  <button class="x" type="button" data-close aria-label="Fermer la fiche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="pd-grid">
+    <div class="pd-media">
+      <div class="pd-stage" id="pdStage"></div>
+      <div class="pd-thumbs" id="pdThumbs" role="group" aria-label="Couleurs en image"></div>
+    </div>
+    <div class="pd-info">
+      <p class="pd-cat" id="pdCat"></p>
+      <h2 id="pdName"></h2>
+      <p class="pd-price"><b id="pdPrice"></b><span id="pdBadge"></span></p>
+      <p class="pd-desc" id="pdDesc"></p>
+      <div class="opt">
+        <p class="opt-t">Couleur : <b id="pdColorName"></b></p>
+        <div class="swatches big" id="pdColors" role="group" aria-label="Couleur"></div>
+      </div>
+      <div class="opt">
+        <p class="opt-t">Taille <span id="pdSizeMsg" class="opt-msg" role="status"></span></p>
+        <div class="sizes" id="pdSizes" role="group" aria-label="Taille"></div>
+        <details class="guide">
+          <summary>Guide des tailles</summary>
+          <div id="pdGuide"></div>
+        </details>
+      </div>
+      <div class="buy">
+        <div class="qty" role="group" aria-label="Quantité">
+          <button type="button" id="pdMinus" aria-label="Retirer un article">−</button>
+          <output id="pdQty" aria-live="polite">1</output>
+          <button type="button" id="pdPlus" aria-label="Ajouter un article">+</button>
+        </div>
+        <button class="btn btn-red" type="button" id="pdAdd">Ajouter au panier</button>
+        <button class="ic heart" type="button" id="pdWish" aria-label="Ajouter aux favoris" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.600A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg></button>
+      </div>
+      <p class="stock" id="pdStock"></p>
+      <div class="tabs" id="pdTabs">
+        <div class="tablist" role="tablist" aria-label="Détails de l'article">
+          <button type="button" role="tab" aria-selected="true" aria-controls="tp1" id="tb1">Matière et entretien</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="tp2" id="tb2" tabindex="-1">Livraison</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="tp3" id="tb3" tabindex="-1">Retours</button>
+        </div>
+        <div role="tabpanel" id="tp1" aria-labelledby="tb1"></div>
+        <div role="tabpanel" id="tp2" aria-labelledby="tb2" hidden><p>Retrait en boutique gratuit, prêt en deux heures. Point relais 4,90 €, domicile 6,90 €, offerts dès 80 € d'achat. Expédition sous 24 heures.</p></div>
+        <div role="tabpanel" id="tp3" aria-labelledby="tb3" hidden><p>30 jours pour échanger ou être remboursé. Retour gratuit en boutique, ou par colis avec l'étiquette prépayée fournie.</p></div>
+      </div>
+      <div class="pair">
+        <h3>Pour compléter la tenue</h3>
+        <div class="pair-row" id="pdPair"></div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Panier -->
+<dialog class="sheet drawer" id="cart" aria-labelledby="cartT">
+  <div class="dr-head">
+    <h2 id="cartT">Votre panier <span id="cartCount"></span></h2>
+    <button class="x" type="button" data-close aria-label="Fermer le panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="ship-bar" id="shipBar"><p id="shipTxt"></p><div class="bar"><i id="shipFill"></i></div></div>
+  <div class="dr-body" id="cartBody"></div>
+  <div class="dr-foot" id="cartFoot">
+    <form class="code" id="codeForm" novalidate>
+      <label class="vh" for="code">Code de réduction</label>
+      <input id="code" type="text" placeholder="Code de réduction" autocomplete="off">
+      <button class="btn btn-line" type="submit">Appliquer</button>
+    </form>
+    <p class="code-msg" id="codeMsg" role="status"></p>
+    <dl class="sum" id="cartSum"></dl>
+    <button class="btn btn-red wide" type="button" id="goPay">Passer la commande</button>
+    <p class="tiny center">Essayez le code <b>BIENVENUE10</b> pour 10&nbsp;% de réduction.</p>
+  </div>
+</dialog>
+
+<!-- Commande -->
+<dialog class="sheet co" id="co" aria-labelledby="coT">
+  <button class="x" type="button" data-close aria-label="Fermer la commande"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="co-grid">
+    <div class="co-main">
+      <h2 id="coT">Commande</h2>
+      <ol class="steps" id="coSteps">
+        <li class="on"><span>1</span>Coordonnées</li>
+        <li><span>2</span>Livraison</li>
+        <li><span>3</span>Paiement</li>
+      </ol>
+
+      <form class="co-step" id="s1" novalidate>
+        <div class="row2">
+          <div class="field"><label for="cPrenom">Prénom</label><input id="cPrenom" autocomplete="given-name" required><p class="err">Indiquez votre prénom.</p></div>
+          <div class="field"><label for="cNom">Nom</label><input id="cNom" autocomplete="family-name" required><p class="err">Indiquez votre nom.</p></div>
+        </div>
+        <div class="field"><label for="cMail">E-mail</label><input id="cMail" type="email" inputmode="email" autocomplete="email" required><p class="err">Indiquez une adresse e-mail valide.</p></div>
+        <div class="field"><label for="cTel">Téléphone</label><input id="cTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" required><p class="err">Indiquez un numéro à 10 chiffres.</p></div>
+        <button class="btn btn-red wide" type="submit">Continuer vers la livraison</button>
+      </form>
+
+      <form class="co-step" id="s2" novalidate hidden>
+        <fieldset class="choices" id="shipChoices">
+          <legend class="vh">Mode de livraison</legend>
+          <label><input type="radio" name="ship" value="retrait" checked><span><b>Retrait en boutique</b><small>12 rue des Tanneurs · prêt en 2 heures</small></span><em data-ship="retrait">Gratuit</em></label>
+          <label><input type="radio" name="ship" value="relais"><span><b>Point relais</b><small>2 à 3 jours ouvrés</small></span><em data-ship="relais"></em></label>
+          <label><input type="radio" name="ship" value="domicile"><span><b>À domicile</b><small>2 à 3 jours ouvrés, contre signature</small></span><em data-ship="domicile"></em></label>
+        </fieldset>
+        <div id="addr" hidden>
+          <div class="field"><label for="cAdr">Adresse</label><input id="cAdr" autocomplete="street-address"><p class="err">Indiquez votre adresse.</p></div>
+          <div class="row2">
+            <div class="field"><label for="cCp">Code postal</label><input id="cCp" inputmode="numeric" autocomplete="postal-code" maxlength="5"><p class="err">Cinq chiffres.</p></div>
+            <div class="field"><label for="cVille">Ville</label><input id="cVille" autocomplete="address-level2"><p class="err">Indiquez votre ville.</p></div>
+          </div>
+        </div>
+        <div class="co-nav"><button class="btn btn-line" type="button" data-back="1">Retour</button><button class="btn btn-red" type="submit">Continuer vers le paiement</button></div>
+      </form>
+
+      <form class="co-step" id="s3" novalidate hidden>
+        <fieldset class="choices">
+          <legend class="vh">Moyen de paiement</legend>
+          <label><input type="radio" name="pay" value="Carte bancaire" checked><span><b>Carte bancaire</b><small>Visa, Mastercard, CB</small></span></label>
+          <label><input type="radio" name="pay" value="PayPal"><span><b>PayPal</b><small>Vous serez redirigé pour valider</small></span></label>
+          <label id="payShop"><input type="radio" name="pay" value="Paiement en boutique"><span><b>Paiement en boutique</b><small>Au moment du retrait</small></span></label>
+        </fieldset>
+        <p class="demo-note">Démonstration : aucune donnée bancaire n'est demandée et rien n'est débité. Sur une vraie boutique, le paiement passe par une page sécurisée au nom du commerçant.</p>
+        <label class="check"><input type="checkbox" id="cgv"><span>J'accepte les conditions générales de vente.</span></label>
+        <p class="err" id="cgvErr" hidden>Cochez la case pour continuer.</p>
+        <div class="co-nav"><button class="btn btn-line" type="button" data-back="2">Retour</button><button class="btn btn-red" type="submit" id="payBtn">Payer</button></div>
+      </form>
+
+      <div class="co-step done" id="s4" hidden>
+        <div class="tick" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="m14 25 7 7 14-15"/></svg></div>
+        <h3 id="doneT" tabindex="-1">Merci, c'est commandé.</h3>
+        <p id="doneP"></p>
+        <p class="demo-note">Démonstration : aucune commande n'a été enregistrée et aucun e-mail n'est envoyé.</p>
+        <button class="btn btn-red" type="button" id="doneBtn">Continuer mes achats</button>
+      </div>
+    </div>
+    <aside class="co-side" aria-label="Récapitulatif">
+      <h3>Récapitulatif</h3>
+      <ul class="co-items" id="coItems"></ul>
+      <dl class="sum" id="coSum"></dl>
+    </aside>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
